@@ -39,6 +39,7 @@ $routes->get('/', 'Home::index');
 $routes->match(['get', 'post'], 'register', 'Register::index');
 $routes->match(['get', 'post'], 'update/(:num)', 'Update::index/$1');
 $routes->get('delete/(:num)', 'Home::delete/$1');
+$routes->get('view/(:num)', 'View::viewController/$1');
 // $routes->match(['get','post'],'update', 'Update::updateData');
 // $routes->get('/register', 'Register::index');
 // $routes->post('/register/auth', 'Register::auth');

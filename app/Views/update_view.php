@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Update</title>
 </head>
 
 <body>
-    <div class="text-center text-xl font-bold p-6 bg-[#14213d] text-white tracking-wide">USER MANAGEMENT DETAILS</div>
+    <div class="text-center text-xl font-bold p-6 bg-[#14213d] text-white tracking-wide">USER MANAGEMENT SYSTEM</div>
 
     <div class="block max-w-screen-lg mx-auto mt-14 mb-5 px-5">
         <a href="/" class="w-fit bg-green-400 p-2.5 rounded shadow-md">View users</a>
@@ -35,6 +35,9 @@
 
                     <div class="mb-4">
                         <input type="hidden" name="id" id="id" value="<?php echo $val->id; ?>" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="sam">
+                    </div>
+                    <div class="mb-4">
+                        <input type="file" name="profile" id="profile" value="<?php echo $val->id; ?>" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     </div>
                     <div class="mb-4">
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Name</label>

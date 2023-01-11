@@ -6,13 +6,11 @@ use App\Models\RegisterModel;
 
 class Register extends Controller{
 
-    public function __construct() {
-        helper('form');
-    }
+
 
     public function index(){
 
-
+        helper('form');
         $request = \Config\Services::request();
         $data = [];
 
@@ -22,13 +20,16 @@ class Register extends Controller{
 
             $session = session();
 
+            $profile = $request->getFile('profile');
             $name =  $request->getVar('name');
             $email = $request->getVar('email');
             $phone = $request->getVar('phone');
             $gender = $request->getVar('gender');
             $location = $request->getVar('location');
             
-            if (!$name) {
+            if (!$profile) {
+                $session->setFlashdata('msg', 'Profile ir required!');
+            }else if (!$name) {
                 $session->setFlashdata('msg', 'Name is required!');
             } else if (!$email) {
                 $session->setFlashdata('msg', 'Email is required!');
@@ -40,7 +41,12 @@ class Register extends Controller{
                 $session->setFlashdata('msg', 'Location is required!');
             } else {
 
+
+                $file =  $profile->getRandomName();
+                $profile->move('./upload', $file);
+
                 $data = [
+                    'profile' => $file,
                     'name' => $name,
                     'email'=> $email,
                     'phone' => $phone,
