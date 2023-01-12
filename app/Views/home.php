@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
 </head>
 
 <body>
@@ -14,12 +13,19 @@
     <div class="text-center text-xl font-bold p-6 bg-[#14213d] text-white tracking-wider">USER MANAGEMENT SYSTEM</div>
 
     <div class="max-w-screen-lg mx-auto mt-16 mb-5 px-5">
-        <div class="mb-12">
-            <a href="/register" class="w-fit bg-green-400 p-2.5 rounded shadow-md">Add user</a>
+        <div class="mb-12 flex justify-between items-center">
+            <a href="/register" class="w-fit bg-gray-300 text-black p-2.5 rounded shadow-md">Add user</a>
+            <form class="flex items-center">
+                <input type="search" name="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-60 p-2.5 mr-5" placeholder="Search name..." />
+                <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-26 px-5 py-2.5 text-center">Search</button>
+            </form>
+            <button onclick="RemoveRule();" class="bg-black p-2.5 rounded-full">
+                <img src="assets/img/refresh.png" class="w-6 h-6" alt="">
+            </button>
         </div>
         <div>
             <div class="relative overflow-x-auto">
-                <table class="w-full text-sm text-left text-gray-500">
+                <table class="w-full text-sm text-left text-gray-500" id="myTable">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr>
                             <th class="px-6 py-3">Profile</th>
@@ -76,6 +82,11 @@
 
 
     <script src="assets/js/tailwindcss.js"></script>
+    <script type="text/javascript">
+        function RemoveRule() {
+            window.location.href = window.location.href.split('?')[0];
+        }
+    </script>
 
 </body>
 

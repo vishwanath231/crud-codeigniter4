@@ -15,15 +15,29 @@ class Home extends BaseController{
             throw new PageNotFoundException($page);
         }
 
+        $request = \Config\Services::request();
+
+        $q = $request->getVar('search');
+        $n = $request->getVar('profile');
+
+        echo $n;
+
+        if ($q) {
+
+            $filterModel = new HomeModel();
+            $data['user'] = $filterModel->filterUser($q);
+            return view($page, $data);
+
+        }else {
+            $userModel = new HomeModel();
+
+            $data['user'] = $userModel->getUsers();
+
+            return view($page, $data);
+        }
+
         
-        $userModel = new HomeModel();
 
-        $data['user'] = $userModel->getUsers();
-
-        // print_r($data['user']);
-        
-
-        return view($page, $data);
     
     }
 
